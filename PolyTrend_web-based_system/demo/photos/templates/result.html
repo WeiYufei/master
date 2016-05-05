@@ -1,0 +1,243 @@
+<!-- The result page of the PolyTrend web-based system-->
+<!-- 
+  Yufei Wei, Lund University
+  E-mail: weiyufei2014@outlook.com 
+  Copyright (C) 2016  Yufei Wei
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>PolyTrend</title>
+<meta charset="utf-8">
+<script type="text/javascript">
+</script>
+<style type="text/css">
+html,body {
+overflow:hidden;
+margin:0px;
+height:100%;
+}
+#whole{
+padding-left: 10%;
+padding-right: 10%;
+background-color:#ffffff;
+margin-top:0px;
+overflow-y:scroll;
+}
+#title1 {
+font-family:Helvetica;
+font-size:35px;
+color:#000062;
+margin-top:0px;
+font-weight:normal;
+line-height:150%;
+}
+#title2 {
+font-family:Helvetica;
+font-size:25px;
+color:#000062;
+margin-top:0px;
+font-style:normal;
+}
+.div1
+{
+padding:8px;
+background-image: url('/site_media/background.jpg');
+position:absolute;
+top:0px;
+left:0px;
+width:1200px;
+z-index:1;
+}
+#textHead1{
+font-style: normal;
+font-family: Arial;
+font-size:20px;
+text-align: justify;
+text-justify: inter-ideograph;
+margin-top: 2.6cm;
+}
+.item{
+font-family:Helvetica;
+font-size:16px;
+line-height:150%;
+}
+.note{
+font-family:Helvetica;
+font-size:15px;
+line-height:150%;
+color:#D095AF;
+}
+.downloadCaption{
+font-style: normal;
+font-family: Helvetica;
+font-size:24px;
+text-align: right;
+text-justify: inter-ideograph;
+}
+.picture{
+text-align:center
+} 
+.explanation{
+font-style: normal;
+font-family: Helvetica;
+font-size:20px;
+text-align: justify;
+text-justify: inter-ideograph;
+}
+.reference{
+font-style: normal;
+font-family: Helvetica;
+font-size:15px;
+text-align: justify;
+text-justify: inter-ideograph;
+color:#000062;
+}
+.footLink{
+color:#6666ff;
+font-family: Helvetica;
+font-size:20px;
+text-align: left;
+background-color:#ffffff;
+font-weight:bold;
+}
+.ccby{
+color:#000062;
+font-family: Helvetica;
+font-size:11px;
+text-align: left;
+background-color:#ffffff;
+}
+.footCopyright{
+font-family: Helvetica;
+font-size:11px;
+color:#000000;
+text-align: left;
+background-color:#ffffff;
+text-decoration: none;
+}
+#closeWindow{
+font-family: Helvetica;
+font-size:20px;
+color:#000062;
+text-align: left;
+background-color:#ffffff;
+text-decoration: none;
+font-weight:bold;
+}
+a:link {
+text-decoration: none;
+color:#6666ff;
+}
+a:visited {
+text-decoration: none;
+color:#6666ff;
+}
+a:hover {
+text-decoration: none;
+color:#6666ff;
+}
+a:active {
+text-decoration: none;
+color:#6666ff;
+}
+</style>
+</head>
+<body id="whole" onload="freezeCustomize()">
+<span class="div1">
+<span id='title1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PolyTrend <i>Result</i></span>
+<br>
+<span id='title2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- A tool to visualize vegetation trends by a nonlinear regression algorithm</span>
+</span>
+<p id='textHead1'></p>
+<span id="headSub" class="item"></span>
+<br>
+<span class="item">The pixels in the result are viewed as <i>unqualified</i> if they fulfill at least one following criterion.</span>
+<br><ul class="note" style="list-style-type:square";><li>For a single pixel in the result, at least one NDVI value in the whole
+ time span is smaller than 0.</li>
+<li>For a single pixel in the result, during the whole time span, the number of NDVI pixels that have a difference of less than 
+ 0.000001 <br>comparing to the ones that represent adjacent years is larger than or equal to 3 times the number of NDVI pixels of the whole time span divided by 4.
+</li></ul>
+<span class="item">The pixels in the result are viewed as <i>excluded</i> if they are qualified pixels 
+but are out of the desired range selected by the user.</span>
+
+
+<p class="downloadCaption"><a href="/site_media/PolyTrendMatrices.zip">Download results in ASCII files</a></p>
+
+<p><div class="picture"><img src="/site_media/NDVI.jpg" mce_src="site_media/NDVI.jpg" width="600" height="510"></div></p>  
+<p><div class="picture"><img src="/site_media/NDVImax.jpg" mce_src="site_media/NDVImax.jpg" width="600" height="510"></div></p>  
+<p><div class="picture"><img src="/site_media/NDVImin.jpg" mce_src="site_media/NDVImin.jpg" width="600" height="510"></div></p>  
+<p><div class="picture"><img src="/site_media/NDVIdif.jpg" mce_src="site_media/NDVIdif.jpg" width="600" height="510"></div></p>  
+
+
+<p class="explanation">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normalized Difference Vegetation Index (NDVI) ranges from -1 to 1. 
+It is used to qualify the density of plant growth. The formula is: NDVI = (NIR - VIS) / (NIR + VIS), where NIR stands for 
+spectral reflectance measured in near-infrared spectral location and VIS means spectral reflectance measured in visible 
+(red) spectral location.</p>
+<p class="explanation">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Positive values of NDVI represent vegetation. The higher the value is, the higher 
+density the vegetation has. 
+Zero values  of NDVI represent bare lands or rocks without vegetation. 
+Negative values  of NDVI represent water, clouds or snow. Negative values are viewed as unqualified data in this algorithm.</p>
+
+<p><div class="picture"><img src="/site_media/TrendType.jpg" mce_src="site_media/TrendType.jpg" width="600" height="510"></div> 
+<span class="explanation"><b>Cubic</b>:<ul style="list-style-type:square";><li>The pattern of vegetation trends can be fitted by a cubic polynomial.</li>
+<li>The net change of NDVI can be detected when the statistical significance level in a t-test is &#945;. </li>
+</ul></span>
+<span class="explanation"><b>Quadratic</b>:<ul style="list-style-type:square;"><li>The pattern of vegetation trends can be fitted by a quadratic polynomial.</li>
+<li>The net change of NDVI can be detected when the statistical significance level in a t-test is &#945;. </li>
+</ul></span>
+<span class="explanation"><b>Linear</b>:<ul style="list-style-type:square;"><li>The pattern of vegetation trends can be fitted by a linear polynomial.</li>
+<li>The net change of NDVI can be detected when the statistical significance level in a t-test is &#945;. </li>
+</ul></span>
+<span class="explanation"><b>No-trend</b>: <ul style="list-style-type:square;"><li>The pattern of vegetation trends can neither be fitted by a cubic, quadratic, nor linear polynomial.</li>
+<li>No net change of NDVI can be detected when the statistical significance level in a t-test is &#945;.</li>
+</ul></span>
+<span class="explanation"><b>Concealed</b>: <ul style="list-style-type:square;"><li>The pattern of vegetation trends can be fitted by a cubic polynomial or a quadratic polynomial.</li>
+<li>No net change of NDVI can be detected when the statistical significance level in a t-test is &#945;.</li>
+</ul></span>
+<br>
+<p><div class="picture"><img src="/site_media/Significance.jpg" mce_src="site_media/Significance.jpg" width="600" height="510"></div></p> 
+<span class="explanation"><b>Significant</b>: The trend type is cubic, quadratic or linear.</span>
+<br><br>
+<span class="explanation"><b>Insignificant</b>: The trend type is no-trend or concealed.</span>
+<br>
+
+<p><div class="picture"><img src="/site_media/Slope.jpg" mce_src="site_media/Slope.jpg" width="600" height="510"></div></p> 
+<p class="explanation">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The above plot shows the slope of vegetation trends of the elapsed time period. The extreme dark-blue pixels refer to <i>unqualified</i> and/or <i>excluded</i> pixels.</p>
+<br>
+<p><div class="picture"><img src="/site_media/Direction.jpg" mce_src="site_media/Direction.jpg" width="600" height="510"></div></p>  
+<span class="explanation"><b>Positive</b>: In general, the net change of NDVI increases.</span>
+<br><br>
+<span class="explanation"><b>Insignificant</b>: In general, the net change of NDVI decreases.</span>
+<br>
+<br>
+<br><br>
+<span class="footLink"><a href="/home/">Start a new calculation</a></span>
+<span id="closeWindow">or Close current window</span>
+
+<br><br>
+<span class="reference">Reference:<a target="_blank" href="http://www.sciencedirect.com/science/article/pii/S0034425713003878">Jamali, S., J. Seaquist, L. Eklundh, and J. Ard&ouml;. 2014. 
+Automated mapping of vegetation trends with polynomials using NDVI imagery over the Sahel. <i>Remote Sensing of Environment</i> 141: 79-89. 
+DOI: 10.1016/j.rse.2013.10.019
+</a></span>
+<hr>
+<span class="ccby">
+<a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br/>
+All information in this webpage are licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="footCopyright">&copy;&nbsp;2016&nbsp;Yufei&nbsp;Wei</span>
+</body>
+</html>

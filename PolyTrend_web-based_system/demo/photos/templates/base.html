@@ -1,0 +1,284 @@
+<!-- The index of the PolyTrend web-based system-->
+<!-- 
+  Yufei Wei, Lund University
+  E-mail: weiyufei2014@outlook.com 
+  Copyright (C) 2016  Yufei Wei
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>PolyTrend</title>
+<meta charset="utf-8">
+<script type="text/javascript">
+function check(){
+	 var significantValue=document.form.significanceLevel.value;
+	 var dataRangeValue=document.form.dataRange.value;
+	 var desiredRangeValue=document.form.desiredRange.value;
+	 var custoMinValue=document.form.customizeMinRange.value;
+	 var custoMaxValue=document.form.customizeMaxRange.value;
+	 var fileNumber = document.getElementById('invisibleText').value;
+	 var alertinfo="";
+ 	 if((significantValue=='')||(isNaN(significantValue))){                  //check if the input significance value is not empty and if that value is an valid character
+		 alertinfo=alertinfo+"Please input a number of significance value.\n";
+	 }
+     if(significantValue>1||significantValue<0){                            // check if the input significance value belongs to the range of [0,1]
+		 alertinfo=alertinfo+"The significance value should belongs to [0,1].\n";
+     }
+	 if (significantValue.indexOf(" ")!=-1){                               // check if the input significance value does not contain space
+		 alertinfo=alertinfo+"The input of 1) cannot contain any space.\n";
+	  } 
+	 if (desiredRangeValue==1){                                           // if the user chooses the customized range
+		 if((custoMinValue=='')||(custoMaxValue=='')){                    // check if the input range is complete  
+			 alertinfo=alertinfo+"Please fill in customized ranges.\n";    
+		 }
+	     if(custoMinValue>1||custoMinValue<0){                           // check if the customized minimum value of the range belongs to [0,1]
+			 alertinfo=alertinfo+"The minimum value of customized range is invalid.\n";
+	     }
+	     if(custoMaxValue>1||custoMaxValue<0){                           // check if the customized maximumm value of the range belongs to [0,1]
+			 alertinfo=alertinfo+"The maximum value of customized range is invalid.\n";
+	     }
+	     if((custoMaxValue<=custoMinValue) || ((isNaN(custoMaxValue))||(isNaN(custoMinValue)))){    // check if the values of the customized range are both valid characters
+			 alertinfo=alertinfo+"The customized range is invalid.\n";                              // check if the maximum value is larger than the minimum value
+	     }
+	     if ((custoMaxValue.indexOf(" ")!=-1)|| (custoMinValue.indexOf(" ")!=-1)){                  // check if both input values of the range do not contain space
+			 alertinfo=alertinfo+"The input of 3) cannot contain any space.\n";
+		  } 
+	 }
+	 if(fileNumber<4){                                                                             // check if the number of uploaded files is larger than 4
+		 alertinfo=alertinfo+"The minimum number of uploaded file is 4 (for fitting a cubic polynomial).\n";
+	  }
+	 if (alertinfo!=""){
+		 alert(alertinfo);
+		 return false;
+      }
+	 else{
+		  document.getElementById("calculateButton").style.display="none";                         // the waiting sign appears when process is undergoing
+		  document.getElementById("fullstop").style.display="none"; 
+		  document.getElementById("headSub").style.display="none"; 
+		  document.getElementById("waitTip").style.display=""; 
+		  return true;
+	 }
+}
+function mouseHover(){
+	document.getElementById("calculateButton").style.backgroundColor="#f9f9f9";
+	document.getElementById("calculateButton").style.color="#ffb366";
+	document.getElementById("calculateButton").style.border="1px #ffffff solid";
+
+	$(document).ready(function(){                                                                // get response from backend that contains the number of uploaded files
+	$.get("/count/",function(countResult){
+   	$('#invisibleText').html(countResult);
+		})
+	});
+}
+function mouseOut(){
+	document.getElementById("calculateButton").style.backgroundColor="#6666ff";
+	document.getElementById("calculateButton").style.color="#ffffff";
+    document.getElementById("calculateButton").style.border="1px #000062 solid";
+}
+function freezeCustomize(){                                                                     // if the user chooses to use the default range then the input fields of customized range should be disabled
+	document.form.customizeMinRange.disabled=true;                                              // also the input in the fields should be empty
+	document.form.customizeMaxRange.disabled=true;
+	document.form.customizeMinRange.value="";
+	document.form.customizeMaxRange.value="";
+}
+function defreezeCustomize(){                                                                  // if the user chooses to use the customized range then the input fields of customized range should be enabled
+	document.form.customizeMinRange.disabled=false;
+	document.form.customizeMaxRange.disabled=false;
+}
+</script>
+<style type="text/css">
+html,body {
+overflow:hidden;
+margin:0px;
+height:100%;
+}
+#whole{
+position: absolute; 
+padding-left:5%;
+padding-right:5%;
+width:1200px;
+left:35%; 
+top:0px;
+overflow-y:auto;
+margin-left:-280px; 
+margin-top:0px; 
+}
+#title1 {
+font-family:Helvetica;
+font-size:35px;
+color:#000062;
+margin-top:0px;
+font-weight:normal;
+}
+#title2 {
+font-family:Helvetica;
+font-size:25px;
+color:#000062;
+margin-top:0px;
+font-style:normal;
+}
+.div1
+{
+padding:5px;
+background-image: url('/site_media/background.jpg');
+position:absolute;
+top:0px;
+left:0px;
+width:1100px;
+}
+#textHead1{
+font-style: normal;
+font-family: Arial;
+font-size:20px;
+text-align: justify;
+text-justify: inter-ideograph;
+margin-top: 2.6cm;
+}
+.item{
+font-family:Helvetica;
+font-size:16px;
+line-height:150%;
+}
+#calculateButton{
+width:160px;
+height:30px;
+font-family: Helvetica;
+font-size:16px;
+color:#ffffff;
+border:1px #000062 solid;
+text-align: center;
+background-color:#6666ff;
+text-decoration: none;
+font-weight: bold;
+}
+#invisibleText{
+rows:1;
+cols:20; 
+display:none;
+}
+.hiddenRange{
+rows:1;
+cols:20; 
+display:none;
+}
+.note{
+font-family:Helvetica;
+font-size:15px;
+line-height:150%;
+color:#D095AF;
+}
+.footLink{
+color:#000062;
+font-family: Helvetica;
+font-size:13px;
+text-align: left;
+background-color:#ffffff;
+}
+.footCopyright{
+font-family: Helvetica;
+font-size:11px;
+color:#000000;
+text-align: left;
+background-color:#ffffff;
+text-decoration: none;
+}
+#seeSource{
+font-family: Helvetica;
+font-size:13px;
+color:#000062;
+text-align: left;
+text-decoration: none;
+}
+#originalAlgorithm{
+font-family: Helvetica;
+font-size:13px;
+color:#000062;
+text-align: left;
+text-decoration: none;
+}
+a.footLink:link {
+text-decoration: none;
+color:#6666ff;
+}
+a.footLink:visited {
+text-decoration: none;
+color:#6666ff;
+}
+a.footLink:hover {
+text-decoration: none;
+color:#6666ff;
+}
+a.footLink:active {
+text-decoration: none;
+color:#6666ff;
+}
+.smallSpace{
+line-height: 20%;
+visibility: hidden;
+}
+</style>
+</head>
+<body id="whole" onload="freezeCustomize()">
+<span class="div1">
+<span id='title1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PolyTrend</span>
+<br>
+<span id='title2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- A tool to visualize vegetation trends by a nonlinear regression algorithm</span>
+</span>
+<p id='textHead1'>The algorithm <span id="seeSource"><i>( <a target="_blank" href="http://www.sciencedirect.com/science/article/pii/S0034425713003878">source</a> & <a href="/site_media/PolyTrend_PixelLevel.zip">code of the original algorithm</a>)</i></span> returns mean NDVI values, minimum NDVI values, maximum NDVI values,<br>  
+differences of NDVI values, tendency of vegetation changes and
+information of vegetation net changes in<br> images and matrices by receiving a NDVI dataset.</p>
+
+<form action="/result/" name="form" method="get" onsubmit="return check();">
+<span id="headSub" class="item">Fulfilling the following 4 items to </span>
+<button id="calculateButton" type="submit" onMouseOver="mouseHover()" onMouseOut="mouseOut()"><span style="font-size:18px"><b>4. </b></span>Run PolyTrend</button><span id="fullstop"class="caption">.</span><span id="waitTip" style="display:none;"><img src="/site_media/loading.gif" id="loadingImag" class="item"/>&nbsp;Please wait...</span> 
+<br><br>
+<span class="item">1)&nbsp;&nbsp;A value of significance level ( i.e. &#945; ). &#945; belongs to [0, 1]. 0.05 is recommended.</span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="significanceLevel" style="width:70px">    
+<p class="smallSpace">aaaa</p>
+<span class="item">2)&nbsp;&nbsp;Nominal range of the NDVI dataset </span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="dataRange" value="0" checked="checked" />&nbsp;&nbsp;[&nbsp;-10000,&nbsp;10000&nbsp;]&nbsp;&nbsp;(&nbsp;e.g.&nbsp;&nbsp;Data from <i><a target="_blank" href="http://daacmodis.ornl.gov/cgi-bin/MODIS/GLBVIZ_1_Glb/modis_subset_order_global_col5.pl">MODIS Subsets&nbsp;&nbsp;</a></i>)&nbsp;&nbsp;<input type="radio" name="dataRange" value="1"/>&nbsp;&nbsp;[&nbsp;-1,&nbsp;1&nbsp;]
+<p class="smallSpace">aaaa</p>
+<span class="item">3)&nbsp;&nbsp;Range of desired NDVI input to be processed</span>
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="desiredRange" value="0" checked="checked" onfocus="freezeCustomize()"/>&nbsp;&nbsp;default&nbsp;&nbsp;(&nbsp;&nbsp;i.e. [&nbsp;0,&nbsp;1&nbsp;]&nbsp;&nbsp;)
+&nbsp;&nbsp;<input type="radio" name="desiredRange" value="1" onfocus="defreezeCustomize()"/>&nbsp;&nbsp;customize,&nbsp;from&nbsp;(&nbsp;min:&nbsp;0&nbsp;)
+<input type="text" name="customizeMinRange" style="width:70px">&nbsp;to&nbsp;(&nbsp;max:&nbsp;1&nbsp;)
+<input type="text" name="customizeMaxRange" style="width:70px">
+
+<!-- if the user chooses the default range then get the following values -->
+<textarea class="hiddenRange" name="defaultMinRange">0</textarea> 
+<textarea class="hiddenRange" name="defaultMaxRange">1</textarea> 
+
+<p class="smallSpace">aaaa</p>
+<span class="item">4)&nbsp;&nbsp;A NDVI time-series dataset</span>
+<br><ul class="note" style="list-style-type:square";><li>The files' type should be "tif".</li>
+<li>All the files should have the same dimension.</li>
+<li>The files should be arranged in chronologocal order (i.e earliest data at the top, and so on) before <i>Upload</i>&nbsp;is clicked.</li>
+</ul>
+</form>
+<p class="hero-unit">
+<p>{% load jfutags %}{% jfu 'photo_upload_form.html' %}</p><br><br>
+<a class="footLink" href="/about/">About</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="footLink" href="/terms/">Terms of Service</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<span class="footCopyright">&copy;&nbsp;2016&nbsp;Yufei&nbsp;Wei</span>
+
+<!-- this text area is used to store the value (i.e. the number of uploaded files )sent from the backend for JS function to get -->
+<textarea id="invisibleText" value="this.value"></textarea> 
+
+</body>
+</html>

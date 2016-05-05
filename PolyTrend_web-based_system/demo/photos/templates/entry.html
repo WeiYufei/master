@@ -1,0 +1,60 @@
+<!-- The entry of the PolyTrend web-based system(an invisible frame)-->
+<!-- 
+  Yufei Wei, Lund University
+  E-mail: weiyufei2014@outlook.com 
+  Copyright (C) 2016  Yufei Wei
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.-->
+<html>
+<head>
+<title>PolyTrend</title>
+<style type="text/css">
+html, body{
+margin: 0px 0px;
+width: 100%;
+height: 100%;
+}
+iframe{
+margin: 0px 0px;
+width: 100%;
+height: 100%;
+}
+</style>
+<script type="text/javascript">
+function iframeHeight(){
+	document.getElementById('iframeId').height="100%";
+}
+function session1() {                                     // check if any page belongs to the Polytrend has been opened, if it is, then redirect to /info/
+	var status = localStorage.getItem("session");
+	if (status != "running"){
+	localStorage.setItem("session", "running");
+	} else if (status == "running") {
+	localStorage.setItem("redirect", "yes");
+	window.location.replace("info");
+	}
+}
+function session0(){
+	var stats = localStorage.getItem("redirect");
+	if (stats == "yes") {
+	} else {
+	localStorage.setItem("session", "done");
+	}
+	localStorage.setItem("redirect", "no");
+}
+</script>
+</head>
+<body onload="session1()" onunload="session0()">       
+<iframe id="iframeId" frameborder=0 scrolling=yes src="home"></iframe>
+</body>
+</html>

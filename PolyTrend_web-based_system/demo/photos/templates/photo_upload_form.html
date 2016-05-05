@@ -1,0 +1,12 @@
+<!-- a Django-JFU template-->
+<!-- * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT -->
+{% extends 'upload_form.html' %}
+{% block JS_OPTS %}
+sequentialUploads: true,
+acceptFileTypes: /(\.|\/)(tif)$/i
+{% endblock %}
+<!-- Only tif files are allowed to upload -->

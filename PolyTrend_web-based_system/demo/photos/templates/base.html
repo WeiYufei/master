@@ -182,23 +182,16 @@ color:#D095AF;
 .footLink{
 color:#000062;
 font-family: Helvetica;
-font-size:13px;
+font-size:15px;
 text-align: left;
 background-color:#ffffff;
 }
 .footCopyright{
 font-family: Helvetica;
-font-size:11px;
+font-size:12px;
 color:#000000;
 text-align: left;
 background-color:#ffffff;
-text-decoration: none;
-}
-#seeSource{
-font-family: Helvetica;
-font-size:13px;
-color:#000062;
-text-align: left;
 text-decoration: none;
 }
 #originalAlgorithm{
@@ -236,10 +229,10 @@ visibility: hidden;
 <br>
 <span id='title2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- A tool to visualize vegetation trends by a nonlinear regression algorithm</span>
 </span>
-<p id='textHead1'>The algorithm <span id="seeSource"><i>( <a target="_blank" href="http://www.sciencedirect.com/science/article/pii/S0034425713003878">source</a> & <a href="/site_media/PolyTrend_PixelLevel.zip">code of the original algorithm</a>)</i></span> returns mean NDVI values, minimum NDVI values, maximum NDVI values,<br>  
-differences of NDVI values, tendency of vegetation changes and
-information of vegetation net changes in<br> images and matrices by receiving a NDVI dataset.</p>
-
+<p id='textHead1'>This algorithm returns mean, minimum and maximum NDVI values,
+differences of NDVI values, <br>  tendency of vegetation changes and
+net changes of NDVI in images and matrices <br>by receiving a time-series NDVI dataset.</p>
+<br>
 <form action="/result/" name="form" method="get" onsubmit="return check();">
 <span id="headSub" class="item">Fulfilling the following 4 items to </span>
 <button id="calculateButton" type="submit" onMouseOver="mouseHover()" onMouseOut="mouseOut()"><span style="font-size:18px"><b>4. </b></span>Run PolyTrend</button><span id="fullstop"class="caption">.</span><span id="waitTip" style="display:none;"><img src="/site_media/loading.gif" id="loadingImag" class="item"/>&nbsp;Please wait...</span> 
@@ -269,11 +262,19 @@ information of vegetation net changes in<br> images and matrices by receiving a 
 </ul>
 </form>
 <p class="hero-unit">
-<p>{% load jfutags %}{% jfu 'photo_upload_form.html' %}</p><br><br>
+<p>{% load jfutags %}{% jfu 'photo_upload_form.html' %}</p>
 <a class="footLink" href="/about/">About</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a class="footLink" href="/terms/">Terms of Service</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="footLink" target="_blank" href="http://www.sciencedirect.com/science/article/pii/S0034425713003878">Reference</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="footLink" href="/site_media/PolyTrend_PixelLevel.zip">Code of the original algorithm</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="footLink" target="_blank" href="https://github.com/weiyufei/polytrend">Code of this tool on GitHub</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
 
 <span class="footCopyright">&copy;&nbsp;2016&nbsp;Yufei&nbsp;Wei</span>
 

@@ -3,17 +3,17 @@
   Yufei Wei, Lund University
   E-mail: weiyufei2014@outlook.com 
   Copyright (C) 2016  Yufei Wei
-  
+
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
-  
+
   This program is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-  
+
   For a copy of the GNU General Public License,
   see <http://www.gnu.org/licenses/>.  -->
 <!DOCTYPE html>
@@ -75,6 +75,7 @@ function mouseHover(){
 	document.getElementById("calculateButton").style.backgroundColor="#f9f9f9";
 	document.getElementById("calculateButton").style.color="#ffb366";
 	document.getElementById("calculateButton").style.border="1px #ffffff solid";
+
 	$(document).ready(function(){                                                                // get response from backend that contains the number of uploaded files
 	$.get("/count/",function(countResult){
    	$('#invisibleText').html(countResult);
@@ -193,21 +194,12 @@ text-align: left;
 background-color:#ffffff;
 text-decoration: none;
 }
-.seeSource{
+#seeSource{
 font-family: Helvetica;
 font-size:13px;
 color:#000062;
 text-align: left;
 text-decoration: none;
-font-style:italic;
-}
-.seeGithub{
-font-family: Helvetica;
-font-size:16px;
-color:#000062;
-text-align: left;
-text-decoration: none;
-font-style:italic;
 }
 #originalAlgorithm{
 font-family: Helvetica;
@@ -232,38 +224,6 @@ a.footLink:active {
 text-decoration: none;
 color:#6666ff;
 }
-a.seeSource:link {
-text-decoration: none;
-color:#6666ff;
-}
-a.seeSource:visited {
-text-decoration: none;
-color:#6666ff;
-}
-a.seeSource:hover {
-text-decoration: none;
-color:#6666ff;
-}
-a.seeSource:active {
-text-decoration: none;
-color:#6666ff;
-}
-a.seeGithub:link {
-text-decoration: none;
-color:#6666ff;
-}
-a.seeGithub:visited {
-text-decoration: none;
-color:#6666ff;
-}
-a.seeGithub:hover {
-text-decoration: none;
-color:#6666ff;
-}
-a.seeGithub:active {
-text-decoration: none;
-color:#6666ff;
-}
 .smallSpace{
 line-height: 20%;
 visibility: hidden;
@@ -276,9 +236,9 @@ visibility: hidden;
 <br>
 <span id='title2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- A tool to visualize vegetation trends by a nonlinear regression algorithm</span>
 </span>
-<p id='textHead1'>The algorithm <span class="seeSource">(</span><a class="seeSource" target="_blank" href="http://www.sciencedirect.com/science/article/pii/S0034425713003878">source</a><span class="seeSource"> & </span><a class="seeSource" href="/site_media/PolyTrend_PixelLevel.zip">code of the original algorithm</a><span class="seeSource">)</span> returns mean NDVI values, minimum NDVI values, maximum NDVI values,<br>  
+<p id='textHead1'>The algorithm <span id="seeSource"><i>( <a target="_blank" href="http://www.sciencedirect.com/science/article/pii/S0034425713003878">source</a> & <a href="/site_media/PolyTrend_PixelLevel.zip">code of the original algorithm</a>)</i></span> returns mean NDVI values, minimum NDVI values, maximum NDVI values,<br>  
 differences of NDVI values, tendency of vegetation changes and
-information of vegetation net changes in<br> images and matrices by receiving a NDVI dataset. <a class="seeGithub" target="_blank" href="https://github.com/WeiYufei/PolyTrend">source code on GitHub</a></p>
+information of vegetation net changes in<br> images and matrices by receiving a NDVI dataset.</p>
 
 <form action="/result/" name="form" method="get" onsubmit="return check();">
 <span id="headSub" class="item">Fulfilling the following 4 items to </span>
@@ -288,7 +248,7 @@ information of vegetation net changes in<br> images and matrices by receiving a 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="significanceLevel" style="width:70px">    
 <p class="smallSpace">aaaa</p>
 <span class="item">2)&nbsp;&nbsp;Nominal range of the NDVI dataset </span>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="dataRange" value="0" checked="checked" />&nbsp;&nbsp;[&nbsp;-10000,&nbsp;10000&nbsp;]&nbsp;&nbsp;(&nbsp;e.g.&nbsp;&nbsp;Data from <i><a class="seeSource" target="_blank" href="http://daacmodis.ornl.gov/cgi-bin/MODIS/GLBVIZ_1_Glb/modis_subset_order_global_col5.pl">MODIS Subsets&nbsp;&nbsp;</a></i>)&nbsp;&nbsp;<input type="radio" name="dataRange" value="1"/>&nbsp;&nbsp;[&nbsp;-1,&nbsp;1&nbsp;]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="dataRange" value="0" checked="checked" />&nbsp;&nbsp;[&nbsp;-10000,&nbsp;10000&nbsp;]&nbsp;&nbsp;(&nbsp;e.g.&nbsp;&nbsp;Data from <i><a target="_blank" href="http://daacmodis.ornl.gov/cgi-bin/MODIS/GLBVIZ_1_Glb/modis_subset_order_global_col5.pl">MODIS Subsets&nbsp;&nbsp;</a></i>)&nbsp;&nbsp;<input type="radio" name="dataRange" value="1"/>&nbsp;&nbsp;[&nbsp;-1,&nbsp;1&nbsp;]
 <p class="smallSpace">aaaa</p>
 <span class="item">3)&nbsp;&nbsp;Range of desired NDVI input to be processed</span>
 

@@ -94,6 +94,32 @@ href="{{ STATIC_URL }}css/jquery.fileupload-ui-noscript.css"
      The fileupload-buttonbar contains buttons to add/delete files and
      start/cancel the upload 
     {% endcomment %}
+    
+{% block UPLOAD_FORM_PROGRESS_BAR %}
+        {% comment %}
+         The global progress information 
+        {% endcomment %}
+        
+        <div class="col-lg-5 fileupload-progress fade">
+            {% comment %}
+             The global progress bar 
+            {% endcomment %}
+            
+            <div 
+                class="progress progress-striped active" 
+                role="progressbar" 
+                aria-valuemin="0" aria-valuemax="100"
+            >
+                <div class="progress-bar progress-bar-success" style="width:0%;">                 
+                </div>
+            </div>   
+                         
+            {% comment %}
+             The extended global progress information 
+            {% endcomment %}
+            <div class="progress-extended">&nbsp;</div>
+        </div>
+        {% endblock %}
 
         <div class="col-lg-7">
 
@@ -103,7 +129,7 @@ href="{{ STATIC_URL }}css/jquery.fileupload-ui-noscript.css"
 
             {% block UPLOAD_FORM_BUTTON_BAR_ADD %}
             <span class="btn btn-success fileinput-button">
-                <span><span style="font-size:18px"><b>1. </b></span>Add TIF Files</span>
+                <span><span style="font-size:18px"><b>1. </b></span>Add TIF files</span>
 
                         
                 {% block UPLOAD_FORM_BUTTON_BAR_ADD_FILE_INPUT %}
@@ -145,9 +171,10 @@ href="{{ STATIC_URL }}css/jquery.fileupload-ui-noscript.css"
             </button>
 
             <button type="button" class="btn btn-danger delete">
-                <span><span style="font-size:18px"><b>3 opt. </b></span>Delete Uploaded Files</span>
-            </button>                                <input type="checkbox" class="toggle">   
+                <span><span style="font-size:18px"><b>3 opt. </b></span>Delete all uploaded</span>
+            </button>                                
             
+            <span style="font-family: Arial;font-size:15px;">select all&nbsp;</span><input type="checkbox" class="toggle">   
             {% endblock %}
 
             {% block UPLOAD_FORM_BUTTON_BAR_EXTRA %}
@@ -155,31 +182,9 @@ href="{{ STATIC_URL }}css/jquery.fileupload-ui-noscript.css"
 
         </div>
 
-        {% block UPLOAD_FORM_PROGRESS_BAR %}
-        {% comment %}
-         The global progress information 
-        {% endcomment %}
-        
-        <div class="col-lg-5 fileupload-progress fade">
-            {% comment %}
-             The global progress bar 
-            {% endcomment %}
             
-            <div 
-                class="progress progress-striped active" 
-                role="progressbar" 
-                aria-valuemin="0" aria-valuemax="100"
-            >
-                <div class="progress-bar progress-bar-success" style="width:0%;">                 
-                </div>
-            </div>   
-                         
-            {% comment %}
-             The extended global progress information 
-            {% endcomment %}
-            <div class="progress-extended">&nbsp;</div>
-        </div>
-        {% endblock %}
+            
+            
         
 
     </div>

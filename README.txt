@@ -4,7 +4,7 @@
 # Copyright © 2016 Yufei Wei
 # weiyufei2014@outlook.com
 #
-# The source is released under the GPL (v3 or newer); 
+# The source is released under the GPL (v3 or newer) License; 
 # see LICENSE about how you are allowed to use the code.
 # 
 # Folder PolyTrend_web-based_system contains the project of this system.

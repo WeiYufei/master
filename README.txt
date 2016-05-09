@@ -1,4 +1,4 @@
-# PolyTrend Web-based system
+# PolyTrend web-based system
 # -- A tool to visualize vegetation trends by a nonlinear regression algorithm
 #
 # Copyright © 2016 Yufei Wei

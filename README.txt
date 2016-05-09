@@ -12,5 +12,5 @@
 # after Djando-jfu Django library is installed
 # Django-jfu is available on https://github.com/Alem/django-jfu
 # 
-# This system has been applied on polytrend.gis.lu.se
+# This system has been applied on http://polytrend.gis.lu.se/
 

@@ -8,7 +8,7 @@
 # see LICENSE about how you are allowed to use the code.
 # 
 # Folder PolyTrend_web-based_system contains the project of this system.
-# Folder Django_jfu_modified_code contains files that need to be replaced 
+# Folder Django_jfu_modified_code contains the license of Django_jfu and files that need to be replaced 
 # after Djando-jfu Django library is installed.
 # Django-jfu is available on https://github.com/Alem/django-jfu.
 # 

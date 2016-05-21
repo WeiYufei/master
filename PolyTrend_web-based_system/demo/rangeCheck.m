@@ -1,10 +1,9 @@
-%---------------------------------------------------------------------
-%  Check if the time-series should be processed. Time-series with         
-%  any data value that smaller than or larger than a predefined range 
-%  should not be processed.   
+%---------------------------------------------------------------------------------------------
+%  Check if the time-series should be processed. Time-series with any data value that        
+%  is out of a predefined range should not be processed.   
 %  y: a vector contains time-series NDVI values
-%  Author:                                                                                                                               
-%  Yufei Wei, Lund University, Sweden 
+%  Author:                                                                                                                          
+%  Yufei Wei, Lund University 
 %  Email: weiyufei2014@outlook.com       
 %  Copyright (C) 2016 Yufei Wei
 %  
@@ -18,9 +17,9 @@
 %  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 %  GNU General Public License for more details.
 %  
-%  You should have received a copy of the GNU General Public License
-%  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-%---------------------------------------------------------------------
+%  For a copy of the GNU General Public License,
+%  see <http://www.gnu.org/licenses/>.  
+%---------------------------------------------------------------------------------------------
 function process = rangeCheck(y,minRange,maxRange)
 minValue=min(y);
 maxValue=max(y);

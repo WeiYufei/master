@@ -237,15 +237,15 @@ net changes of NDVI in images and matrices <br>by receiving a time-series NDVI d
 <span id="headSub" class="item">Fulfilling the following 4 items to </span>
 <button id="calculateButton" type="submit" onMouseOver="mouseHover()" onMouseOut="mouseOut()"><span style="font-size:18px"><b>4. </b></span>Run PolyTrend</button><span id="fullstop"class="caption">.</span><span id="waitTip" style="display:none;"><img src="/site_media/loading.gif" id="loadingImag" class="item"/>&nbsp;Please wait...</span> 
 <br><br>
-<span class="item">1)&nbsp;&nbsp;A value of significance level ( i.e. &#945; ). &#945; belongs to [0, 1]. 0.05 is recommended.</span>
+<span class="item">1)&nbsp;&nbsp;A value of significance level (&nbsp;&#945;&nbsp;). &#945; belongs to [0, 1]. 0.05 is recommended.</span>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="significanceLevel" style="width:70px">    
 <p class="smallSpace">aaaa</p>
 <span class="item">2)&nbsp;&nbsp;Nominal range of the NDVI dataset </span>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="dataRange" value="0" checked="checked" />&nbsp;&nbsp;[&nbsp;-10000,&nbsp;10000&nbsp;]&nbsp;&nbsp;(&nbsp;e.g.&nbsp;&nbsp;Data from <i><a class="footLink" target="_blank" href="http://daacmodis.ornl.gov/cgi-bin/MODIS/GLBVIZ_1_Glb/modis_subset_order_global_col5.pl">MODIS Subsets&nbsp;&nbsp;</a></i>)&nbsp;&nbsp;<input type="radio" name="dataRange" value="1"/>&nbsp;&nbsp;[&nbsp;-1,&nbsp;1&nbsp;]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="dataRange" value="0" checked="checked" />&nbsp;&nbsp;[&nbsp;-10000,&nbsp;10000&nbsp;]&nbsp;&nbsp;(&nbsp;e.g.&nbsp;&nbsp;Data from <i><a class="footLink" target="_blank" href="http://daacmodis.ornl.gov/cgi-bin/MODIS/GLBVIZ_1_Glb/modis_subset_order_global_col5.pl">MODIS Subsets</a></i>&nbsp;)&nbsp;&nbsp;<input type="radio" name="dataRange" value="1"/>&nbsp;&nbsp;[&nbsp;-1,&nbsp;1&nbsp;]
 <p class="smallSpace">aaaa</p>
 <span class="item">3)&nbsp;&nbsp;Range of desired NDVI input to be processed</span>
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="desiredRange" value="0" checked="checked" onfocus="freezeCustomize()"/>&nbsp;&nbsp;default&nbsp;&nbsp;(&nbsp;&nbsp;i.e. [&nbsp;0,&nbsp;1&nbsp;]&nbsp;&nbsp;)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="desiredRange" value="0" checked="checked" onfocus="freezeCustomize()"/>&nbsp;&nbsp;default&nbsp;&nbsp;(&nbsp;i.e. [&nbsp;0,&nbsp;1&nbsp;]&nbsp;)
 &nbsp;&nbsp;<input type="radio" name="desiredRange" value="1" onfocus="defreezeCustomize()"/>&nbsp;&nbsp;customize,&nbsp;from&nbsp;(&nbsp;min:&nbsp;0&nbsp;)
 <input type="text" name="customizeMinRange" style="width:70px">&nbsp;to&nbsp;(&nbsp;max:&nbsp;1&nbsp;)
 <input type="text" name="customizeMaxRange" style="width:70px">
@@ -270,9 +270,9 @@ net changes of NDVI in images and matrices <br>by receiving a time-series NDVI d
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a class="footLink" target="_blank" href="http://www.sciencedirect.com/science/article/pii/S0034425713003878">Reference</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Code of the original algorithm (<a class="footLink" href="/site_media/PolyTrend_PixelLevel.zip">MATLAB</a> & <a class="footLink" target="_blank" href="https://cran.r-project.org/web/packages/PolyTrend/index.html">R</a>)
+Source code of the original algorithm (<a class="footLink" href="/site_media/PolyTrend_PixelLevel.zip">MATLAB</a> & <a class="footLink" target="_blank" href="https://cran.r-project.org/web/packages/PolyTrend/index.html">R</a>)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a class="footLink" target="_blank" href="https://github.com/weiyufei/polytrend">Code of this tool on GitHub</a>
+<a class="footLink" target="_blank" href="https://github.com/weiyufei/polytrend">Source code of this tool</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 

@@ -1,5 +1,5 @@
 ####################################################################################################################################
-# EXPLANATION of files in PolyTrendMatrices.zip      
+# EXPLANATION of the files in PolyTrendMatrices.zip      
 # Yufei Wei, Lund University
 # weiyufei2014@outlook.com
 
@@ -24,7 +24,7 @@ All .txt files can be opened in WordPad, MATLAB, Excel, ArcGIS, etc. and may app
 ##### Positive values of NDVI represent vegetation. The higher the value is, the higher-density vegetation the location has. Zero values of NDVI represent bare lands or rocks without vegetation. Negative values of NDVI indicate the existence of water, clouds or snow. In this algorithm, negative values are unqualified values since the algorithm focus on describing vegetation trends.
 
 
-# TrendTypeMatrix.txt -- Trend type of each pixel.3~cubic, 2~quadratic, 1~linear, 0~No_trend, -1~concealed
+# TrendTypeMatrix.txt -- Trend type of each pixel. 3~cubic, 2~quadratic, 1~linear, 0~No_trend, -1~concealed
 ## Cubic:
 ##### The pattern of vegetation trends can be fitted by a cubic polynomial.
 ##### The net change of vegetation amount can be detected when the statistical significance level in a t-test is α.

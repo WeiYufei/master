@@ -9,7 +9,7 @@
 %  dataRangethe: the original range of NDVI values and 
 %  minRange,maxRange: the definced range of displaying NDVI values
 %  Author:
-%  Yufei Wei,Lund University, Sweden 
+%  Yufei Wei,Lund University
 %  Email: weiyufei2014@outlook.com
 %  Copyright (C) 2016 Yufei Wei
 %  
@@ -23,8 +23,8 @@
 %  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 %  GNU General Public License for more details.
 %  
-%  You should have received a copy of the GNU General Public License
-%  along with this program.  If not, see <http://www.gnu.org/licenses/>.  
+%  For a copy of the GNU General Public License,
+%  see <http://www.gnu.org/licenses/>.  
 %---------------------------------------------------------------------
 function PolyTrendImage(significance,dataRange,minRange,maxRange)
 clc;
@@ -155,8 +155,8 @@ colormap(NDVIColorBar);
 caxis([-0.4,1]);
 set(colorbar,'ytick',[-0.4:0.2:1],'yticklabel',{'Unqualified','Excluded','0','0.2','0.4','0.6','0.8','1.0'},'FontSize', 10,'FontName','Verdana');
 title('Mean Values of NDVI','FontSize', 20,'FontName','Times New Roman');
-xlabel('No.(row)','FontSize', 12,'FontName','Verdana');
-ylabel('No.(column)','FontSize', 12,'FontName','Verdana');
+xlabel('No.(column)','FontSize', 12,'FontName','Verdana');
+ylabel('No.(row)','FontSize', 12,'FontName','Verdana');
 print(fgNVMe,'-djpeg','C:\demoStorage\NDVI.jpg');
 %% plotting minimum NDVI values
 fgNVMi = figure;
@@ -165,8 +165,8 @@ colormap(NDVIColorBar);
 caxis([-0.4,1]);
 set(colorbar,'ytick',[-0.4:0.2:1],'yticklabel',{'Unqualified','Excluded','0','0.2','0.4','0.6','0.8','1.0'},'FontSize', 10,'FontName','Verdana');
 title('Minimum Values of NDVI','FontSize', 20,'FontName','Times New Roman');
-xlabel('No.(row)','FontSize', 12,'FontName','Verdana');
-ylabel('No.(column)','FontSize', 12,'FontName','Verdana');
+xlabel('No.(column)','FontSize', 12,'FontName','Verdana');
+ylabel('No.(row)','FontSize', 12,'FontName','Verdana');
 print(fgNVMi,'-djpeg','C:\demoStorage\NDVImin.jpg');
 %% plotting maximum NDVI values
 fgNVMa = figure;
@@ -175,8 +175,8 @@ colormap(NDVIColorBar);
 caxis([-0.4,1]);
 set(colorbar,'ytick',[-0.4:0.2:1],'yticklabel',{'Unqualified','Excluded','0','0.2','0.4','0.6','0.8','1.0'},'FontSize', 10,'FontName','Verdana');
 title('Maximum Values of NDVI','FontSize', 20,'FontName','Times New Roman');
-xlabel('No.(row)','FontSize', 12,'FontName','Verdana');
-ylabel('No.(column)','FontSize', 12,'FontName','Verdana');
+xlabel('No.(column)','FontSize', 12,'FontName','Verdana');
+ylabel('No.(row)','FontSize', 12,'FontName','Verdana');
 print(fgNVMa,'-djpeg','C:\demoStorage\NDVImax.jpg');
 %% plotting differences NDVI values
 fgNVMa = figure;
@@ -185,8 +185,8 @@ colormap(NDVIColorBar);
 caxis([-0.4,1]);
 set(colorbar,'ytick',[-0.4:0.2:1],'yticklabel',{'Unqualified','Excluded','0','0.2','0.4','0.6','0.8','1.0'},'FontSize', 10,'FontName','Verdana');
 title('Differences of NDVI values','FontSize', 20,'FontName','Times New Roman');
-xlabel('No.(row)','FontSize', 12,'FontName','Verdana');
-ylabel('No.(column)','FontSize', 12,'FontName','Verdana');
+xlabel('No.(column)','FontSize', 12,'FontName','Verdana');
+ylabel('No.(row)','FontSize', 12,'FontName','Verdana');
 print(fgNVMa,'-djpeg','C:\demoStorage\NDVIdif.jpg');
 %% plotting trend type values
 fgTrTy = figure;
@@ -195,8 +195,8 @@ colormap(TrendTypeColorBar);
 caxis([-3,3]);
 set(colorbar,'ytick',[-3:1:3],'yticklabel',{'Unqualified','Excluded','Concealed','No-trend','Linear','Quadratic','Cubic'},'FontSize', 10,'FontName','Verdana');
 title('Trend Types','FontSize', 20,'FontName','Times New Roman');
-xlabel('No.(row)','FontSize', 12,'FontName','Verdana');
-ylabel('No.(column)','FontSize', 12,'FontName','Verdana');
+xlabel('No.(column)','FontSize', 12,'FontName','Verdana');
+ylabel('No.(row)','FontSize', 12,'FontName','Verdana');
 print(fgTrTy,'-djpeg','C:\demoStorage\TrendType.jpg');
 %% plotting statistical significance values
 fgSigni = figure;
@@ -205,8 +205,8 @@ colormap(SignificanceColorBar);
 caxis([-5,1]);
 set(colorbar,'ytick',[-5:2:1],'yticklabel',{'Unqualified','Excluded','Insignificant','Significant'},'FontSize',10,'FontName','Verdana');
 title('Statistical Significance','FontSize', 20,'FontName','Times New Roman');
-xlabel('No.(row)','FontSize', 12,'FontName','Verdana');
-ylabel('No.(column)','FontSize', 12,'FontName','Verdana');
+xlabel('No.(column)','FontSize', 12,'FontName','Verdana');
+ylabel('No.(row)','FontSize', 12,'FontName','Verdana');
 print(fgSigni,'-djpeg','C:\demoStorage\Significance.jpg');
 %% plotting linear slope values
 fgSlop = figure;
@@ -214,8 +214,8 @@ imagesc(Slope);
 colormap('jet');
 set(colorbar,'FontSize', 12,'FontName','Verdana');
 title('Linear Slopes','FontSize', 20,'FontName','Times New Roman');
-xlabel('No.(row)','FontSize', 12,'FontName','Verdana');
-ylabel('No.(column)','FontSize', 12,'FontName','Verdana');
+xlabel('No.(column)','FontSize', 12,'FontName','Verdana');
+ylabel('No.(row)','FontSize', 12,'FontName','Verdana');
 print(fgSlop,'-djpeg','C:\demoStorage\Slope.jpg');
 %% plotting direction values
 fgDire = figure;
@@ -224,8 +224,8 @@ colormap(DirectionColorBar);
 caxis([-5,1]);
 set(colorbar,'ytick',[-5:2:1],'yticklabel',{'Unqualified','Excluded','Negative','Positive'},'FontSize', 10,'FontName','Verdana');
 title('Directions','FontSize', 20,'FontName','Times New Roman');
-xlabel('No.(row)','FontSize', 12,'FontName','Verdana');
-ylabel('No.(column)','FontSize', 12,'FontName','Verdana');
+xlabel('No.(column)','FontSize', 12,'FontName','Verdana');
+ylabel('No.(row)','FontSize', 12,'FontName','Verdana');
 print(fgDire,'-djpeg','C:\demoStorage\Direction.jpg');
 %% deleting all files that used in the calculation, saving results as txt files and zipping them
 cd('C:\demo\media'); 

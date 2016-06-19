@@ -42,7 +42,7 @@ All .txt files can be opened in WordPad, MATLAB, Excel, ArcGIS, etc. and may app
 ##### No net change of vegetation amount can be detected when the statistical significance level in a t-test is α.
 
 
-SlopeMatrix.txt -- Linear slopes value that showing the net changes of NDVI during the whole time period of each pixel.
+SlopeMatrix.txt -- The inclination of the net change of NDVI during the whole time period of each pixel.
 ##### The extreme dark-blue pixels refer to unqualified and/or excluded pixels.
 ##### NaN in the matrix represents unqualified and/or excluded pixels.
 

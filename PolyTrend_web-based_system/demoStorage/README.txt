@@ -24,7 +24,7 @@ All .txt files can be opened in WordPad, MATLAB, Excel, ArcGIS, etc. and may app
 ##### Positive values of NDVI represent vegetation. The higher the value is, the higher-density vegetation the location has. Zero values of NDVI represent bare lands or rocks without vegetation. Negative values of NDVI indicate the existence of water, clouds or snow. In this algorithm, negative values are unqualified values since the algorithm focus on describing vegetation trends.
 
 
-# TrendTypeMatrix.txt -- Trend type of each pixel. 3~cubic, 2~quadratic, 1~linear, 0~No_trend, -1~concealed
+# TrendTypeMatrix.txt -- Trend type of each pixel. 3~cubic, 2~quadratic, 1~linear, 0~no_trend, -1~concealed
 ## Cubic:
 ##### The pattern of vegetation trends can be fitted by a cubic polynomial.
 ##### The net change of vegetation amount can be detected when the statistical significance level in a t-test is α.
@@ -42,16 +42,16 @@ All .txt files can be opened in WordPad, MATLAB, Excel, ArcGIS, etc. and may app
 ##### No net change of vegetation amount can be detected when the statistical significance level in a t-test is α.
 
 
-SlopeMatrix.txt -- The inclination of the net change of NDVI during the whole time period of each pixel.
+SlopeMatrix.txt -- The inclination of the net change of NDVI of each pixel during the whole time period.
 ##### The extreme dark-blue pixels refer to unqualified and/or excluded pixels.
 ##### NaN in the matrix represents unqualified and/or excluded pixels.
 
-DirectionMatrix.txt -- For each pixel, if the linear slope's value is negative, the value of the direction will be -1, otherwise is 1.
+DirectionMatrix.txt -- For each pixel, if the linear slope's value is negative the value will be -1, otherwise it will be 1.
 ##### Positive: In general, the net change of NDVI increases. 
 ##### Negative: In general, the net change of NDVI decreases.
 
 
-SignificanceMatrix.txt -- For each pixel, if the trend type belongs to "cubic", "quadratic" or "linear" the value will be 1, otherwise is -1.
+SignificanceMatrix.txt -- For each pixel, if the trend type belongs to "cubic", "quadratic" or "linear" the value will be 1, otherwise it will be -1.
 ##### Significant: The trend type is cubic, quadratic or linear. 
 ##### Insignificant: The trend type is no-trend or concealed. 
        

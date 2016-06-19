@@ -4,7 +4,7 @@
 # weiyufei2014@outlook.com
 
 
-# The pixels in the results are viewed as unqualified if they fulfill at least one following criterion. 
+# The pixels in the results are viewed as unqualified if they fulfill at least one of the following criteria. 
 ##### For a single pixel in the results, at least one NDVI values in the whole time span is smaller than 0.
 ##### For a single pixel in the results, during the whole time span, the number of NDVI pixels that have a difference of less than 0.000001 comparing to the ones that represent adjacent years is larger than or equal to 3 times the number of NDVI pixels of the whole time span divided by 4.
 ##### For all matrices except SlopeMatrix.txt, the value of unqualified pixels is -12000.
